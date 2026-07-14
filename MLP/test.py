@@ -83,7 +83,7 @@ def get_loss(X, Y, block_size, embedding_dim, W1, b1, W2, b2, C):
     return F.cross_entropy(logits, Y)
 
 
-def run(count, block_size, embedding_dim, W1, b1, W2, b2, C, itos, g):
+def sample(count, block_size, embedding_dim, W1, b1, W2, b2, C, itos, g):
     for i in range(count):
 
         out = []
@@ -134,7 +134,7 @@ def main():
     loss_valid = get_loss(X_valid, Y_valid, block_size, embedding_dim, W1, b1, W2, b2, C)    
     print('loss vslid', loss_valid.item())
     
-    run(25, block_size, embedding_dim, W1, b1, W2, b2, C, itos, g)
+    sample(25, block_size, embedding_dim, W1, b1, W2, b2, C, itos, g)
 
 
 if __name__ == "__main__":
